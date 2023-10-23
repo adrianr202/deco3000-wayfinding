@@ -1,0 +1,620 @@
+BSSID (MAC Address): 6c:d6:e3:01:c3:22:
+RSSI (Signal Strength): 62 dBm
+Estimated Distance: 3.69m
+----------------------------------     
+BSSID (MAC Address): 6c:d6:e3:01:ec:02:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------     
+BSSID (MAC Address): 6c:d6:e3:03:ce:c2:
+RSSI (Signal Strength): 64 dBm
+Estimated Distance: 4.3m
+----------------------------------     
+BSSID (MAC Address): 48:91:d5:f6:3a:22:
+RSSI (Signal Strength): 65 dBm
+Estimated Distance: 4.64m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:02:
+RSSI (Signal Strength): 66 dBm
+Estimated Distance: 5.01m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:c3:2d:
+RSSI (Signal Strength): 66 dBm
+Estimated Distance: 5.01m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:f2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:e2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:92:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:a2:
+RSSI (Signal Strength): 69 dBm
+Estimated Distance: 6.31m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f5:b6:c2:
+RSSI (Signal Strength): 69 dBm
+Estimated Distance: 6.31m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:b5:e2:
+RSSI (Signal Strength): 69 dBm
+Estimated Distance: 6.31m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:02:
+RSSI (Signal Strength): 70 dBm
+Estimated Distance: 6.81m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:97:d2:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:3a:2d:
+RSSI (Signal Strength): 72 dBm
+Estimated Distance: 7.94m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:ed:
+RSSI (Signal Strength): 73 dBm
+Estimated Distance: 8.58m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:0d:
+RSSI (Signal Strength): 73 dBm
+Estimated Distance: 8.58m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:a2:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:d1:c2:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:42:f2:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:d2:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f4:1b:02:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:ad:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:0d:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:b5:ed:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:60:c2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:fd:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:4e:f2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:9d:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:cd:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f5:b6:cd:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:c0:32:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:82:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:16:82:
+RSSI (Signal Strength): 80 dBm
+Estimated Distance: 14.68m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:ff:8d:
+RSSI (Signal Strength): 80 dBm
+Estimated Distance: 14.68m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:ca:2d:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 68:71:61:14:67:a2:
+RSSI (Signal Strength): 83 dBm
+Estimated Distance: 18.48m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:cd:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:c8:1d:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:39:6d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:ec:0d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:dd:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:22:ed:
+RSSI (Signal Strength): 86 dBm
+Estimated Distance: 23.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:ad:
+RSSI (Signal Strength): 86 dBm
+Estimated Distance: 23.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:2a:5d:
+RSSI (Signal Strength): 87 dBm
+Estimated Distance: 25.12m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:80:0d:
+RSSI (Signal Strength): 88 dBm
+Estimated Distance: 27.12m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:31:5d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:8d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:a5:3d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+(base) PS C:\Users\hp\Downloads\Web Stuff\GitHub\deco3000-wayfinding> & C:/Users/hp/anaconda3/python.exe "c:/Users/hp/Downloads/Web Stuff/GitHub/deco3000-wayfinding/get_signal.py"
+BSSID (MAC Address): 48:91:d5:f6:b5:e2:
+RSSI (Signal Strength): 61 dBm
+Estimated Distance: 3.41m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f5:b6:c2:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:ec:02:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:c3:22:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:a2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:f2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:e2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:ed:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:92:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:c2:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:3a:2d:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:c3:2d:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:02:
+RSSI (Signal Strength): 70 dBm
+Estimated Distance: 6.81m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:02:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:3a:22:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:97:d2:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:0d:
+RSSI (Signal Strength): 72 dBm
+Estimated Distance: 7.94m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:a2:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:16:82:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:ff:8d:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f5:b6:cd:
+RSSI (Signal Strength): 75 dBm
+Estimated Distance: 10.0m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:ca:2d:
+RSSI (Signal Strength): 75 dBm
+Estimated Distance: 10.0m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:42:f2:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:d1:c2:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:d2:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f4:1b:02:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:0d:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:ad:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:ff:82:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:60:c2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:4e:f2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:c0:32:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:82:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:ad:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:b5:ed:
+RSSI (Signal Strength): 80 dBm
+Estimated Distance: 14.68m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:9d:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:cd:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:97:dd:
+RSSI (Signal Strength): 82 dBm
+Estimated Distance: 17.11m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:fd:
+RSSI (Signal Strength): 82 dBm
+Estimated Distance: 17.11m
+----------------------------------
+BSSID (MAC Address): 68:71:61:14:67:a2:
+RSSI (Signal Strength): 83 dBm
+Estimated Distance: 18.48m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:80:0d:
+RSSI (Signal Strength): 83 dBm
+Estimated Distance: 18.48m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:cd:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:c8:1d:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:39:6d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:ec:0d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:dd:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:22:ed:
+RSSI (Signal Strength): 86 dBm
+Estimated Distance: 23.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:2a:5d:
+RSSI (Signal Strength): 87 dBm
+Estimated Distance: 25.12m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:31:5d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:8d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:a5:3d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+(base) PS C:\Users\hp\Downloads\Web Stuff\GitHub\deco3000-wayfinding> & C:/Users/hp/anaconda3/python.exe "c:/Users/hp/Downloads/Web Stuff/GitHub/deco3000-wayfinding/get_signal.py"
+BSSID (MAC Address): 48:91:d5:f5:b6:c2:
+RSSI (Signal Strength): 60 dBm
+Estimated Distance: 3.16m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:b5:e2:
+RSSI (Signal Strength): 61 dBm
+Estimated Distance: 3.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:ec:02:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:c3:22:
+RSSI (Signal Strength): 63 dBm
+Estimated Distance: 3.98m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:a2:
+RSSI (Signal Strength): 65 dBm
+Estimated Distance: 4.64m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:f2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:e2:
+RSSI (Signal Strength): 67 dBm
+Estimated Distance: 5.41m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:92:
+RSSI (Signal Strength): 68 dBm
+Estimated Distance: 5.84m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:3a:2d:
+RSSI (Signal Strength): 69 dBm
+Estimated Distance: 6.31m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:02:
+RSSI (Signal Strength): 70 dBm
+Estimated Distance: 6.81m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:02:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:c2:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:3a:22:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:97:d2:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:c3:2d:
+RSSI (Signal Strength): 71 dBm
+Estimated Distance: 7.36m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:a5:32:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:a2:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:16:82:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:ff:8d:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:ca:2d:
+RSSI (Signal Strength): 74 dBm
+Estimated Distance: 9.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:0a:ed:
+RSSI (Signal Strength): 75 dBm
+Estimated Distance: 10.0m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:42:f2:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:d1:c2:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:b5:ed:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:cd:
+RSSI (Signal Strength): 76 dBm
+Estimated Distance: 10.8m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:d2:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f4:1b:02:
+RSSI (Signal Strength): 77 dBm
+Estimated Distance: 11.66m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:ff:82:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:60:c2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:4e:f2:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:02:c0:32:
+RSSI (Signal Strength): 78 dBm
+Estimated Distance: 12.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:82:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:fd:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:20:ad:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f5:b6:cd:
+RSSI (Signal Strength): 79 dBm
+Estimated Distance: 13.59m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:97:dd:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:ce:0d:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:03:74:9d:
+RSSI (Signal Strength): 81 dBm
+Estimated Distance: 15.85m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:5e:ad:
+RSSI (Signal Strength): 82 dBm
+Estimated Distance: 17.11m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:2a:0d:
+RSSI (Signal Strength): 82 dBm
+Estimated Distance: 17.11m
+----------------------------------
+BSSID (MAC Address): 68:71:61:14:67:a2:
+RSSI (Signal Strength): 83 dBm
+Estimated Distance: 18.48m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:ec:0d:
+RSSI (Signal Strength): 83 dBm
+Estimated Distance: 18.48m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:9f:cd:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:82:dd:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f6:c8:1d:
+RSSI (Signal Strength): 84 dBm
+Estimated Distance: 19.95m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:39:6d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:80:0d:
+RSSI (Signal Strength): 85 dBm
+Estimated Distance: 21.54m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:31:5d:
+RSSI (Signal Strength): 86 dBm
+Estimated Distance: 23.26m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:04:22:ed:
+RSSI (Signal Strength): 86 dBm
+Estimated Distance: 23.26m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f7:2a:5d:
+RSSI (Signal Strength): 87 dBm
+Estimated Distance: 25.12m
+----------------------------------
+BSSID (MAC Address): 48:91:d5:f2:5c:ad:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:01:12:8d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------
+BSSID (MAC Address): 6c:d6:e3:00:a5:3d:
+RSSI (Signal Strength): 89 dBm
+Estimated Distance: 29.29m
+----------------------------------

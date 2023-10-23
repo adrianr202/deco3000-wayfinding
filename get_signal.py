@@ -44,7 +44,7 @@ for network in sorted_results:
     d = 10 ** ((s - 45) / (10 * 3)) # Calculate the estimated distance
     d = round(d,2) # Convert the distance to centimeters and round to 2 decimal places
     #print(f"SSID: {network.ssid}")
-    #print(f"BSSID (MAC Address): {network.bssid}")
+    print(f"BSSID (MAC Address): {network.bssid}")
     print(f"RSSI (Signal Strength): {s} dBm")
     #print(f"Frequency: {f} Mhz")
     print(f"Estimated Distance: {d}m")
