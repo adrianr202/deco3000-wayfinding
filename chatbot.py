@@ -19,11 +19,41 @@ langchain.verbose = True
 
 import streamlit as st
 
+# Import Wilkinson Custom Database and tools
+from wilkinson_database.database import purpose_database, room_database  # Import purpose and landmarks
+
+def search_purpose_database(input_text):
+    input_text = input_text.lower()  # Convert user input to lowercase for case-insensitive search
+    for purpose, data in purpose_database.items():
+        descriptions = data["descriptions"]
+        keywords = data["keywords"]
+        for keyword in keywords:
+            if keyword in input_text:
+                return f"You seem to be here for {purpose} ({', '.join(descriptions)})."
+    return "I'm not sure about your purpose here."
+
+# Tool for room details
+def room_finder(room_number):
+    room_info = room_database.get(room_number)
+    if room_info:
+        st.write(f"**Room {room_number}**")
+        st.write(f"**Name:** {room_info['name']}")
+        st.write(f"**Capacity:** {room_info['capacity']} people")
+        st.write(f"**Description:** {room_info['description']}")
+        st.button("Directions")
+    else:
+        return f"Room {room_number} not found in the building."
+
+def display_location_info(location_name):
+    st.write(f"Here are the directions to {location_name}")
+
 llm = ChatOpenAI(openai_api_key=apikey)
 
 def slowcall(function,delay=2):
     time.sleep(delay)
     return function
+
+# Function to display information and directions for a location
 
 # Features include
 # Room Number
@@ -34,71 +64,85 @@ def slowcall(function,delay=2):
     # Guest Speaker
 
 # Prompts the user to specify the purpose of their stay at a Wilkinson and returns their response.
-determine_user_purpose = PromptTemplate(
-    input_variables=["purpose"],
-    
-    # Please describe the purpose of your stay at Wilkinson. 
-    # You may include details such as the nature of your visit, the duration, and any specific requirements.
-    template="""Return a schedule with {purpose} in a hourly format table. Show the time, task and location in this table"""     
-)
-
-determine_user_purpose_chain = LLMChain(llm=llm, prompt=determine_user_purpose, verbose=True)
 
 tools = [
     Tool(
-        name="Differentiate Events",
-        #func=wiki.search,
-        description="Search for an article on Wikipedia",
+        name="Determine Purpose",
+        func=search_purpose_database,
+        description="Determine the user's purpose in Wilkinson Building based on their input."
     ),
     Tool(
         name="Differentiate Room Numbers",
-        #func=wiki.lookup,
-        description="Look up a term within the last article retrieved from Wikipedia. You cannot use this tool until you have used the Search tool to find an Article.",
+        func=room_finder,
+        description="Find information about a room by entering its room number.",
     ),
-    Tool(
-        name="Get Current Location",
-        #func = writer_chain.run,
-        description="An LLM prompted for creative writing about a provided topic"
-    ),
-    Tool(
-        name="Get Target Location",
-        #func = writer_chain.run,
-        description="An LLM prompted for creative writing about a provided topic"
-    )
+    # Tool(
+    #     name="Get Current Location",
+    #     #func = writer_chain.run,
+    #     description="Capture current location for localization"
+    # ),
+    # Tool(
+    #     name="Get Target Location",
+    #     #func = writer_chain.run,
+    #     description="Capture target room location"
+    # )
 ]
 
-direction_template = PromptTemplate(
-    input_variables=["direction"],
-    template="""Provide direction to the locations and provide a map of the building. Provide the schedule also.
-    
-    {direction}
-    """
-)
-
 agent_kwargs = {
-    "prefix": "Answer the following questions as best you can, making sure always to answer in the form of Rudyard Kipling's poem: Buddha at Kamakura (1892)",
+    "prefix": "Answer the following questions as best you can, making sure always to answer using the format instructions",
     "format_instructions": """
     Use the following format:
 
     Question: the input question you must answer
     Thought: you should always think about what to do
-    Action: the action to take, should be one of [Search, Lookup]
+    Action: the action to take, should be one of these tools [Determine Purpose], [Differentiate Room Number]
     Action Input: the input to the action
     Observation: the result of the action
     ... (this Thought/Action/Action Input/Observation can repeat N times)
     Thought: I now know the final answer
-    Final Answer: Poem about the topic in the style of Rudyard Kipling's Buddha at Kamakura (1892)
+
+    Final Answer: You seem to have [Purpose] at [Room], would you like directions to it?
     """
 }
-
-direction_chain = LLMChain(llm=llm, prompt=direction_template, verbose=True)
-overall_chain= SimpleSequentialChain(chains=[determine_user_purpose_chain, direction_chain], verbose=True)
 
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, agent_kwargs=agent_kwargs)
 
 st.title("Wilkinson Building Assistant")
-question = st.text_input("What brings you here today?")
 
-if question:
-    st.write(agent.run(question))
+# seperate feature points of chatbot
+# Tab 1 - Directory
+# Tab 2 - Advanced Help
+tab1, tab2 = st.tabs(["Directory", "Further Help"])
 
+with tab1:
+    st.header("Directory")
+    st.write("Click on a location for directions")
+
+    # Define the locations as a list of text values
+    locations = [
+        "Masters Homebase",
+        "DECO3000 - Tutorial Session",
+        "DECO3000 - Lecture Session",
+        "Tin Sheds Gallery",
+    ]
+
+    # Horizontal layout for the buttons
+    num_columns = len(locations)
+    columns = st.columns(num_columns)
+
+    for i, location_name in enumerate(locations):
+        if columns[i].button(location_name):
+            # outputs the direction to clicked location button
+            display_location_info(location_name)
+
+with tab2:
+    st.header("Still need help?")
+    question = st.text_input("Provide your question here")
+
+    if question:
+        st.write(agent.run(question)) 
+
+    room_number = st.text_input("Enter a room number to find information:").lower()
+    if room_number:
+        room_info = room_finder(room_number)
+         
