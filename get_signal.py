@@ -34,9 +34,11 @@ for result in scan_results:
         unique_networks[bssid] = result
 # Sort the unique results by RSSI (signal strength) in descending order
 sorted_results = sorted(unique_networks.values(), key=lambda x: x.signal, reverse=True)
+
 # Free-Space Path Loss adapted avarage constant for home WiFI routers and following units
 # Taken from: https://gist.github.com/cryptolok/516471ce35a9851197b204853c6de080
 FSPL = 27.55 
+
 # Print the information for the nth strongest networks
 for network in sorted_results:
     f = network.freq / 1000
