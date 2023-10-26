@@ -11,43 +11,57 @@ from pywifi import const
 from math import log10
 import matplotlib.pyplot as plt
 import numpy as np
+import statistics
 
 wifi = pywifi.PyWiFi()
 iface = wifi.interfaces()[0]  # Use the first wireless interface (you can select a different one if needed)
 name = iface.name()  # Get the interface name
 
-#i = 0
+data_time = []
+data_distance = []
 
-#Iterates the code over a 60 second period
-#while i != 30:
-    #i += 1
+i = 0
+while i != 20:
+    i += 1
 
-iface.scan()  # Scan for networks
-time.sleep(2)  # Wait a bit for the scan to finish
-scan_results = iface.scan_results()  # Get scan results
-# Create a dictionary to store unique networks based on BSSID
-unique_networks = {}
-for result in scan_results:
-    bssid = result.bssid
-    ssid = result.ssid
-    if bssid not in unique_networks and ssid == "UniSydney": # Only add the network if it is not already in the dictionary and if it is UniSydney
-        unique_networks[bssid] = result
-# Sort the unique results by RSSI (signal strength) in descending order
-sorted_results = sorted(unique_networks.values(), key=lambda x: x.signal, reverse=True)
+    iface.scan()  # Scan for networks
+    time.sleep(4)  # Wait a bit for the scan to finish
+    scan_results = iface.scan_results()  # Get scan results
+    # Create a dictionary to store unique networks based on BSSID
+    unique_networks = {}
+    for result in scan_results:
+        bssid = result.bssid
+        ssid = result.ssid
+        if bssid not in unique_networks and ssid == "Vince's Phone": # Only add the network if it is not already in the dictionary and if it is UniSydney
+            unique_networks[bssid] = result
+    # Sort the unique results by RSSI (signal strength) in descending order
+    sorted_results = sorted(unique_networks.values(), key=lambda x: x.signal, reverse=True)
 
-# Free-Space Path Loss adapted avarage constant for home WiFI routers and following units
-# Taken from: https://gist.github.com/cryptolok/516471ce35a9851197b204853c6de080
-FSPL = 27.55 
+    # Print the information for the nth strongest networks
+    for network in sorted_results:
+        f = network.freq / 1000 # Convert frequency from MHz to GHz
+        s = abs(network.signal) # Converts negative RSSI values to positive
 
-# Print the information for the nth strongest networks
-for network in sorted_results:
-    f = network.freq / 1000
-    s = abs(network.signal) # Converts negative RSSI values to positive
-    d = 10 ** ((s - 45) / (10 * 3)) # Calculate the estimated distance
-    d = round(d,2) # Convert the distance to centimeters and round to 2 decimal places
-    #print(f"SSID: {network.ssid}")
-    print(f"BSSID (MAC Address): {network.bssid}")
-    print(f"RSSI (Signal Strength): {s} dBm")
-    #print(f"Frequency: {f} Mhz")
-    print(f"Estimated Distance: {d}m")
-    print("----------------------------------")
+        # Calculate the estimated distance by using Log-Distance Path Model
+        # https://en.wikipedia.org/wiki/Log-distance_path_loss_model
+        d = 10 ** ((s - 45) / (10 * 3)) 
+        d = round(d,2) # Convert the distance to centimeters and round to 2 decimal places
+
+        data_time.append(s)
+        data_distance.append(d)
+        # Print the information for the network
+        print(f"SSID: {network.ssid}")
+        print(f"BSSID (MAC Address): {network.bssid}")
+        print(f"RSSI (Signal Strength): {s} dBm")
+        print(f"Estimated Distance: {d}m")
+        print("----------------------------------")
+
+ax = plt.gca()
+ax.set_xlim(0, 10)  # Set minimum and maximum X-axis values
+ax.set_ylim(0, 2)
+plt.axhline(y = 1, color = 'r', linestyle = '-') 
+plt.axhline(y = statistics.mean(data_distance), color = 'b', linestyle = '-') 
+plt.scatter(data_time, data_distance)
+plt.xlabel("Iterations")
+plt.ylabel("Distance (m)")
+plt.show() 

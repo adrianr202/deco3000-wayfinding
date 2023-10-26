@@ -29,7 +29,7 @@ room_database = {
     "gallery": {
         "name": "Tin Sheds Gallery",
         "capacity": 50,
-        "description": "Gallery in Wilkinson Building offering art works featured in Architecture and Design."
+        "description": "Gallery offering art works featured in Architecture and Design."
     },
     # Lecture
     "270": {
@@ -41,7 +41,7 @@ room_database = {
     "241": {
         "name": "Seminar Room 241",
         "capacity": 30,
-        "description": "A studio room for small, interactive group discussions and collaborative learning."
+        "description": "A studio room for small, interactive group discussions and studying."
     },
     # Study
     "homebase": {

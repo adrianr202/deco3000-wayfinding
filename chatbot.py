@@ -1,5 +1,5 @@
-from curses import init_pair
-from tabnanny import verbose
+#from curses import init_pair
+#from tabnanny import verbose
 from unicodedata import name
 from apikey import apikey
 from langchain.chat_models import ChatOpenAI
@@ -9,83 +9,62 @@ from langchain.chains import SimpleSequentialChain
 
 # Week 8 imports
 from langchain.agents import Tool, AgentType, initialize_agent
-from langchain.agents.react.base import DocstoreExplorer
-from langchain.docstore.wikipedia import Wikipedia
+from langchain.tools import BaseTool
 import langchain 
-
-import time
 
 langchain.verbose = True
 
 import streamlit as st
 
+#Import shortest path algorithm
+from network import path_edges
+
 # Import Wilkinson Custom Database and tools
 from wilkinson_database.database import purpose_database, room_database  # Import purpose and landmarks
 
-def search_purpose_database(input_text):
-    input_text = input_text.lower()  # Convert user input to lowercase for case-insensitive search
-    for purpose, data in purpose_database.items():
-        descriptions = data["descriptions"]
-        keywords = data["keywords"]
-        for keyword in keywords:
-            if keyword in input_text:
-                return f"You seem to be here for {purpose} ({', '.join(descriptions)})."
-    return "I'm not sure about your purpose here."
+class DeterminePurpose(BaseTool):
+    name = "Determine Purpose"
+    description = "Determine the user's purpose in Wilkinson Building based on their input."
 
-# Tool for room details
-def room_finder(room_number):
-    room_info = room_database.get(room_number)
-    if room_info:
-        st.write(f"**Room {room_number}**")
-        st.write(f"**Name:** {room_info['name']}")
-        st.write(f"**Capacity:** {room_info['capacity']} people")
-        st.write(f"**Description:** {room_info['description']}")
-        st.button("Directions")
-    else:
-        return f"Room {room_number} not found in the building."
+    def _run(self, input_text):
+        # lowercase the input text
+        input_text = input_text.lower()
 
-def display_location_info(location_name):
-    st.write(f"Here are the directions to {location_name}")
+        # iterate through the purpose database
+        for purpose, data in purpose_database.items():
+            keywords = data["keywords"]
+            for keyword in keywords:
+                if keyword in input_text:
+                    return f"You seem to be here for {purpose}."
+        return "I'm not sure about your purpose here."
+    
+    def _arun(self):
+        return "ASYNC ERROR."
 
-llm = ChatOpenAI(openai_api_key=apikey)
+class FindRoom(BaseTool):
+    name = "Find Room"
+    description = "Find information about a room by entering its room number."
 
-def slowcall(function,delay=2):
-    time.sleep(delay)
-    return function
+    def _run(self, input_text):
+        # lowercase the input text
+        input_text = input_text.lower()
 
-# Function to display information and directions for a location
+        # iterate through the purpose database
+        for room_number, data in room_database.items():
+            if room_number in input_text:
+                name = data["name"]
+                description = data["description"]
+                return f"**Room {room_number}**\n**Name:** {name}\n**Description:** {description}"
+        return "I'm not sure about the room you're looking for."
 
-# Features include
-# Room Number
-# Intention of staying at Wilkinson
-    # Study
-    # Lecture
-    # Class / Studio / Workshop
-    # Guest Speaker
+    def _arun(self):
+        return "ASYNC ERROR."
 
-# Prompts the user to specify the purpose of their stay at a Wilkinson and returns their response.
+llm = ChatOpenAI(openai_api_key='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')
 
 tools = [
-    Tool(
-        name="Determine Purpose",
-        func=search_purpose_database,
-        description="Determine the user's purpose in Wilkinson Building based on their input."
-    ),
-    Tool(
-        name="Differentiate Room Numbers",
-        func=room_finder,
-        description="Find information about a room by entering its room number.",
-    ),
-    # Tool(
-    #     name="Get Current Location",
-    #     #func = writer_chain.run,
-    #     description="Capture current location for localization"
-    # ),
-    # Tool(
-    #     name="Get Target Location",
-    #     #func = writer_chain.run,
-    #     description="Capture target room location"
-    # )
+    DeterminePurpose(),
+    FindRoom(),
 ]
 
 agent_kwargs = {
@@ -95,18 +74,17 @@ agent_kwargs = {
 
     Question: the input question you must answer
     Thought: you should always think about what to do
-    Action: the action to take, should be one of these tools [Determine Purpose], [Differentiate Room Number]
+    Action: the action to take, should be the list of tools available
     Action Input: the input to the action
     Observation: the result of the action
     ... (this Thought/Action/Action Input/Observation can repeat N times)
     Thought: I now know the final answer
 
-    Final Answer: You seem to have [Purpose] at [Room], would you like directions to it?
+    Final Answer: [Room] is the best for [Purpose], would you like directions to it?
     """
 }
 
 agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, agent_kwargs=agent_kwargs)
-
 st.title("Wilkinson Building Assistant")
 
 # seperate feature points of chatbot
