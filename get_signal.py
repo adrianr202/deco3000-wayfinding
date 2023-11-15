@@ -18,8 +18,9 @@ for result in scan_results:
 # Sort the unique results by RSSI (signal strength) in descending order
 sorted_results = sorted(unique_network.values(), key=lambda x: x.signal, reverse=True)
 
-# Get the strongest router, or the first result from sorted_results
+# Get the strongest router MAC address, or the first result from sorted_results
 strongest_node = sorted_results[0]
+strongest_node_address = strongest_node.bssid
 
 # Print the information for the strongest node if it exists, else return "no connection"
 s = abs(strongest_node.signal) # Converts negative RSSI values to positive

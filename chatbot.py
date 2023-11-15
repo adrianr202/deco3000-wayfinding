@@ -13,31 +13,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
-# Import the strongest_node function from get_signal.py, function cus circular import error
-from database import router_addresses, location_names, connections
-
-#Create a graph
-G = nx.Graph()
-
-# Node Constructor based on a Key with attributes: bssid, name
-for i in range(len(router_addresses)):
-    G.add_node(i, 
-               bssid=router_addresses[i], 
-               name=location_names[i]
-               )
+def getShortestPath(self):
     
-# Add edges (connections/hallways) between nodes
-G.add_edges_from(connections)
-
-def getShortestPath(input=""):
-        
-        #What is the shortest path between Entrance Inside and Homebase Storage
+        from network import G
+        from database import location_names
 
         #Split the string into key words from the comma
-        keywords = input.split(", ")
-
-        #Compare the words from the words in the database
-        from database import location_names
+        keywords = self.split(", ")
 
         selected_nodes = []
 
@@ -49,7 +31,6 @@ def getShortestPath(input=""):
             else:
                 print("No matching locations")
         
-        #for some reason network.py cannot import this, so Ill use static values for now in network.py
         start = selected_nodes[0]
         target = selected_nodes[-1]
         
@@ -61,46 +42,85 @@ def getShortestPath(input=""):
         path_directions = ', '.join(readable_path).replace(', ', ' -> ')
 
         print(path_directions)
-        return path_directions
+        return f"The path is: {path_directions}"
 
+shortestPathTool = Tool(
+    name="Get Shortest Path",
+    func=getShortestPath,
+    description = "use this tool when you need to find the shortest path. Input in the following format: 'Location Start, Location Target' based on the key words"
+)
+
+def getCurrentLocation(input=""):
+    from get_signal import strongest_node_address
+    from database import router_addresses, location_names
+    current_loc_key = router_addresses.index(strongest_node_address)
+    current_loc_name = location_names[current_loc_key]
+    return f"My Current Location is: {current_loc_name}"
+
+currentLocationTool = Tool(
+    name="Get Current Location",
+    func=getCurrentLocation,
+    description = "use this tool when you need to find your current location. input should be 'current_loc_name'"
+)
+
+def getDirections(self):
+    from database import location_names, router_positions
+
+    #Get the current location coordinates
+    node_id = location_names.index(self)
+    current_node_posX = router_positions[node_id][0]
+    current_node_posY = router_positions[node_id][1]
+
+    #Get the next location coordinates
+    next_node_id = node_id + 1
+    next_node_posX = router_positions[next_node_id][0]
+    next_node_posY = router_positions[next_node_id][1]
+
+    #calculate the direction vector
+    x_dir = current_node_posX - next_node_posX
+    y_dir = current_node_posY - next_node_posY
+    
+    if x_dir > 0 and y_dir > 0:
+        return "Go North West"
+    elif x_dir > 0 and y_dir < 0:
+        return "Go South West"
+    elif x_dir < 0 and y_dir > 0:
+        return "Go North East"
+    elif x_dir < 0 and y_dir < 0:
+        return "Go South East"
+    elif x_dir == 0 and y_dir > 0:
+        return "Go North"
+    elif x_dir == 0 and y_dir < 0:
+        return "Go South"
+    elif x_dir > 0 and y_dir == 0:
+        return "Go West"
+    elif x_dir < 0 and y_dir == 0:
+        return "Go East"
+    else: 
+        return "You are traversing the 4th dimension and we cannot help you"
+    
+directionsTool = Tool(
+    name="Get Directions",
+    func=getDirections,
+    description = "use this tool when you need to find the directions to the next location. input should be based on the User and remove any spaces or punctuation"
+)
 
 # initialize LLM (ChatGPT 3.5)
-llm = ChatOpenAI(openai_api_key="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",
+llm = ChatOpenAI(openai_api_key="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",
                  temperature=0)
 
 # Tool List for the Agent
 tools = [
-    Tool(
-        name="Get Shortest Path",
-        func=getShortestPath,
-        description = "use this tool when you need to find the shortest path. Input in the following format: 'Entrance Outside, Homebase Storage' based on the key words"
-    )
+    shortestPathTool, 
+    currentLocationTool,
+    directionsTool
 ]
-
-# Agent Kwargs, layout of how the agent will ask questions
-agent_kwargs = {
-    "prefix": "Answer the following questions as best you can, making sure always to answer using the format instructions",
-    "format_instructions": """
-    Use the following format:
-
-    Question: the input question you must answer
-    Thought: you should always think about what to do
-    Action: the action to take, what should I check to get the answer to the question? To be able
-    Action Input: the input to the action
-    Observation: the result of the action
-    ... (this Thought/Action/Action Input/Observation can repeat N times)
-    Thought: I now know the final answer
-
-    Final Answer: What is the Next Step?
-    """
-}
 
 # Initializing the Agent
 agent = initialize_agent(tools, 
                          llm, 
                          agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
-                         max_iterations=3, 
-                         agent_kwargs=agent_kwargs,
+                         max_iterations=5, 
                          verbose=True,
                          handle_parsing_errors=True,
                         )
