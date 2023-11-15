@@ -12,8 +12,9 @@ Alternatively, remove `strongest_node_address` in 'chatbot.py' (line 54 and 56) 
 ## Instructions
 1. Clone the repository 
 2. **IMPORTANT:** To simulate your router as the starting point for the pathfinding, rename `YOUR ROUTER ADDRESS` in 'database.py' (line 2) to your own router MAC address.
-3. To test the app, run only the file 'chatbot.py' which will create a web app from streamlit. Make sure to type `streamlit run chatbot.py` in the console to run the app.
-4. If you want to use the LLM, ensure the location names are taken from list `location_names` from database.py. Capitalization and spaces are important and can affect if it works or not.
-5. Please only use two locations when finding a path to. The program is not able to find a path to more than two locations.
+3. In chatbot.py (line 109) input your API key in `openai_api_key="apikey"`
+4. To test the app, run only the file 'chatbot.py' which will create a web app from streamlit. Make sure to type `streamlit run chatbot.py` in the console to run the app.
+5. If you want to use the LLM, ensure the location names are taken from list `location_names` from database.py. Capitalization and spaces are important and can affect if it works or not.
+6. Please only use two locations when finding a path to. The program is not able to find a path to more than two locations.
 
 ![Network Map showing path from outside to Homebase](network_map.png)

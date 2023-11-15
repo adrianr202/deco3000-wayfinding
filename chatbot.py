@@ -106,7 +106,7 @@ directionsTool = Tool(
 )
 
 # initialize LLM (ChatGPT 3.5)
-llm = ChatOpenAI(openai_api_key="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",
+llm = ChatOpenAI(openai_api_key="apikey",
                  temperature=0)
 
 # Tool List for the Agent
