@@ -1,72 +1,83 @@
-#from curses import init_pair
-#from tabnanny import verbose
-from unicodedata import name
-from apikey import apikey
-from langchain.chat_models import ChatOpenAI
-from langchain import PromptTemplate, LLMChain
-from langchain.llms import OpenAI
-from langchain.chains import SimpleSequentialChain
-
-# Week 8 imports
-from langchain.agents import Tool, AgentType, initialize_agent
 from langchain.tools import BaseTool
+from langchain.agents import Tool, AgentType, initialize_agent
 import langchain 
 
 langchain.verbose = True
 
 import streamlit as st
 
-#Import shortest path algorithm
-from network import path_edges
+from langchain.chat_models import ChatOpenAI
 
-# Import Wilkinson Custom Database and tools
-from wilkinson_database.database import purpose_database, room_database  # Import purpose and landmarks
+import networkx as nx
+import numpy as np
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
 
-class DeterminePurpose(BaseTool):
-    name = "Determine Purpose"
-    description = "Determine the user's purpose in Wilkinson Building based on their input."
+# Import the strongest_node function from get_signal.py, function cus circular import error
+from database import router_addresses, location_names, connections
 
-    def _run(self, input_text):
-        # lowercase the input text
-        input_text = input_text.lower()
+#Create a graph
+G = nx.Graph()
 
-        # iterate through the purpose database
-        for purpose, data in purpose_database.items():
-            keywords = data["keywords"]
-            for keyword in keywords:
-                if keyword in input_text:
-                    return f"You seem to be here for {purpose}."
-        return "I'm not sure about your purpose here."
+# Node Constructor based on a Key with attributes: bssid, name
+for i in range(len(router_addresses)):
+    G.add_node(i, 
+               bssid=router_addresses[i], 
+               name=location_names[i]
+               )
     
-    def _arun(self):
-        return "ASYNC ERROR."
+# Add edges (connections/hallways) between nodes
+G.add_edges_from(connections)
 
-class FindRoom(BaseTool):
-    name = "Find Room"
-    description = "Find information about a room by entering its room number."
+def getShortestPath(input=""):
+        
+        #What is the shortest path between Entrance Inside and Homebase Storage
 
-    def _run(self, input_text):
-        # lowercase the input text
-        input_text = input_text.lower()
+        #Split the string into key words from the comma
+        keywords = input.split(", ")
 
-        # iterate through the purpose database
-        for room_number, data in room_database.items():
-            if room_number in input_text:
-                name = data["name"]
-                description = data["description"]
-                return f"**Room {room_number}**\n**Name:** {name}\n**Description:** {description}"
-        return "I'm not sure about the room you're looking for."
+        #Compare the words from the words in the database
+        from database import location_names
 
-    def _arun(self):
-        return "ASYNC ERROR."
+        selected_nodes = []
 
-llm = ChatOpenAI(openai_api_key='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')
+        #If there are any matching location words, fidn the index of them in the location_names database which is the same as the node key for the network
+        for word in keywords:
+            if word in location_names:
+                node_id = location_names.index(word)
+                selected_nodes.append(node_id)
+            else:
+                print("No matching locations")
+        
+        #for some reason network.py cannot import this, so Ill use static values for now in network.py
+        start = selected_nodes[0]
+        target = selected_nodes[-1]
+        
+        # Find the shortest path w/ Dijkstra's magic
+        path = nx.shortest_path(G, source=start, target=target)
 
+        # Get the shortest path generated and use its location names so the AI can read it easily
+        readable_path = [location_names[i] for i in path]
+        path_directions = ', '.join(readable_path).replace(', ', ' -> ')
+
+        print(path_directions)
+        return path_directions
+
+
+# initialize LLM (ChatGPT 3.5)
+llm = ChatOpenAI(openai_api_key="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",
+                 temperature=0)
+
+# Tool List for the Agent
 tools = [
-    DeterminePurpose(),
-    FindRoom(),
+    Tool(
+        name="Get Shortest Path",
+        func=getShortestPath,
+        description = "use this tool when you need to find the shortest path. Input in the following format: 'Entrance Outside, Homebase Storage' based on the key words"
+    )
 ]
 
+# Agent Kwargs, layout of how the agent will ask questions
 agent_kwargs = {
     "prefix": "Answer the following questions as best you can, making sure always to answer using the format instructions",
     "format_instructions": """
@@ -74,53 +85,28 @@ agent_kwargs = {
 
     Question: the input question you must answer
     Thought: you should always think about what to do
-    Action: the action to take, should be the list of tools available
+    Action: the action to take, what should I check to get the answer to the question? To be able
     Action Input: the input to the action
     Observation: the result of the action
     ... (this Thought/Action/Action Input/Observation can repeat N times)
     Thought: I now know the final answer
 
-    Final Answer: [Room] is the best for [Purpose], would you like directions to it?
+    Final Answer: What is the Next Step?
     """
 }
 
-agent = initialize_agent(tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, max_iterations=5, agent_kwargs=agent_kwargs)
+# Initializing the Agent
+agent = initialize_agent(tools, 
+                         llm, 
+                         agent=AgentType.CHAT_ZERO_SHOT_REACT_DESCRIPTION, 
+                         max_iterations=3, 
+                         agent_kwargs=agent_kwargs,
+                         verbose=True,
+                         handle_parsing_errors=True,
+                        )
+
+#Initializing the Streamlit Interface
 st.title("Wilkinson Building Assistant")
-
-# seperate feature points of chatbot
-# Tab 1 - Directory
-# Tab 2 - Advanced Help
-tab1, tab2 = st.tabs(["Directory", "Further Help"])
-
-with tab1:
-    st.header("Directory")
-    st.write("Click on a location for directions")
-
-    # Define the locations as a list of text values
-    locations = [
-        "Masters Homebase",
-        "DECO3000 - Tutorial Session",
-        "DECO3000 - Lecture Session",
-        "Tin Sheds Gallery",
-    ]
-
-    # Horizontal layout for the buttons
-    num_columns = len(locations)
-    columns = st.columns(num_columns)
-
-    for i, location_name in enumerate(locations):
-        if columns[i].button(location_name):
-            # outputs the direction to clicked location button
-            display_location_info(location_name)
-
-with tab2:
-    st.header("Still need help?")
-    question = st.text_input("Provide your question here")
-
-    if question:
-        st.write(agent.run(question)) 
-
-    room_number = st.text_input("Enter a room number to find information:").lower()
-    if room_number:
-        room_info = room_finder(room_number)
-         
+question = st.text_input("Provide your question here")
+if question:
+    st.write(agent.run(question))  
